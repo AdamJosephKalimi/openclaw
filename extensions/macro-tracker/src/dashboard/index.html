@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macro Tracker — OpenClaw</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="/macro-tracker/app.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1>🥗 Macro Tracker</h1>
+      <div class="date-nav">
+        <button id="prev-btn" class="nav-btn" title="Previous">◀</button>
+        <span id="date-label" class="date-label"></span>
+        <button id="next-btn" class="nav-btn" title="Next">▶</button>
+        <button id="today-btn" class="today-btn">Today</button>
+      </div>
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="day">Day</button>
+        <button class="view-btn" data-view="week">Week</button>
+        <button class="view-btn" data-view="month">Month</button>
+      </div>
+    </header>
+
+    <!-- Goals Progress -->
+    <section id="goals-section" class="card">
+      <h2>Daily Progress</h2>
+      <div id="progress-bars" class="progress-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="card charts-grid">
+      <div class="chart-container">
+        <h3>Macros Breakdown</h3>
+        <canvas id="macro-doughnut"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3 id="bar-chart-title">Daily Calories</h3>
+        <canvas id="calorie-bar"></canvas>
+      </div>
+    </section>
+
+    <!-- Entries List -->
+    <section id="entries-section" class="card">
+      <h2>Entries</h2>
+      <div id="entries-list" class="entries-list">
+        <!-- Dynamically populated -->
+      </div>
+      <div id="no-entries" class="no-data" style="display: none;">
+        <p>No entries yet. Log food via voice or text to get started!</p>
+      </div>
+    </section>
+
+    <!-- Goals Editor -->
+    <section id="goals-editor" class="card">
+      <h2>Goals</h2>
+      <form id="goals-form" class="goals-form">
+        <div class="form-row">
+          <label for="goal-calories">Calories (kcal)</label>
+          <input type="number" id="goal-calories" name="calories" min="0" step="50">
+        </div>
+        <div class="form-row">
+          <label for="goal-protein">Protein (g)</label>
+          <input type="number" id="goal-protein" name="protein" min="0" step="5">
+        </div>
+        <div class="form-row">
+          <label for="goal-carbs">Carbs (g)</label>
+          <input type="number" id="goal-carbs" name="carbs" min="0" step="5">
+        </div>
+        <div class="form-row">
+          <label for="goal-fat">Fat (g)</label>
+          <input type="number" id="goal-fat" name="fat" min="0" step="5">
+        </div>
+        <div class="form-row">
+          <label for="goal-fiber">Fiber (g)</label>
+          <input type="number" id="goal-fiber" name="fiber" min="0" step="1">
+        </div>
+        <button type="submit" class="btn-primary">Save Goals</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="/macro-tracker/app.js"></script>
+</body>
+</html>
